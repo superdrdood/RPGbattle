@@ -1,0 +1,156 @@
+#mainPage {
+  padding: 20px;
+}
+#mainPage.chooseTarget {
+  background-color: #777777;
+}
+#mainPage.chooseTarget > * {
+  filter: brightness(0.8);
+}
+#mainPage.chooseTarget #battleArea {
+  filter: brightness(1);
+}
+#mainPage.chooseTarget #battleArea .enemy:hover {
+  box-shadow: 0px 0px 10px black;
+}
+#battleArea {
+  background-color: #eeeeee;
+  border: 2px solid black;
+  width: 800px;
+  height: 400px;
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 650px 150px;
+}
+#battleArea #enemySide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#battleArea #partySide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#battleArea .enemy {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  margin: 20px;
+  padding: 5px;
+  transition: 0.1s;
+  box-shadow: 0px 0px 0px black;
+}
+#battleArea .party {
+  width: 75px;
+  height: 75px;
+  background-color: blue;
+  color: white;
+  font-size: 20px;
+  margin: 20px;
+  padding: 5px;
+  position: relative;
+}
+#battleArea .party::after {
+  content: "17";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  filter: opacity(0);
+  transition: 0.5s;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  -webkit-text-stroke: 1px black;
+}
+#battleArea .party.showDamage::after {
+  filter: opacity(1);
+  top: -20px;
+}
+#statusArea {
+  background-color: #eeeeee;
+  border: 2px solid black;
+  width: 800px;
+  margin: 20px;
+}
+.statusPerson {
+  display: grid;
+  grid-template-columns: 400px 1fr 1fr 1fr;
+  border: 1px solid black;
+  background-color: #cccccc;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 20px;
+}
+.statusPerson .name {
+  font-size: 30px;
+  padding: 5px;
+}
+.statusPerson .HP {
+  padding: 5px;
+  position: relative;
+}
+.statusPerson .HP .HPbar {
+  width: 90%;
+  border: 1px solid black;
+  padding: 0px;
+  height: 10px;
+  background: #8bff47;
+  position: absolute;
+  bottom: 5px;
+  left: 5%;
+}
+.statusPerson .MP {
+  padding: 5px;
+  position: relative;
+}
+.statusPerson .MP .MPbar {
+  width: 90%;
+  border: 1px solid black;
+  padding: 0px;
+  height: 10px;
+  background: #47cbff;
+  position: absolute;
+  bottom: 5px;
+  left: 5%;
+}
+.statusPerson .ATB {
+  padding: 5px;
+  position: relative;
+}
+.statusPerson .ATB .ATBbar {
+  width: 90%;
+  border: 1px solid black;
+  padding: 0px;
+  height: 10px;
+  background: #d447ff;
+  position: absolute;
+  bottom: 5px;
+  left: 5%;
+}
+#attackMenu #menu {
+  background-color: #eeeeee;
+  border: 2px solid black;
+  width: 400px;
+  margin: 20px;
+}
+#attackMenu #menu .attackMenuPersonName {
+  font-size: 24px;
+  padding: 5px;
+  margin: 10px;
+}
+#attackMenu #menu .attackMenuOption {
+  border: 1px solid black;
+  background-color: #cccccc;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 20px;
+  padding: 5px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+#attackMenu #menu .attackMenuOption:hover {
+  filter: brightness(0.9);
+}
