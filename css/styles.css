@@ -33,6 +33,7 @@
   justify-content: space-around;
 }
 #battleArea .enemy {
+  position: relative;
   width: 100px;
   height: 100px;
   background-color: red;
@@ -43,17 +44,7 @@
   transition: 0.1s;
   box-shadow: 0px 0px 0px black;
 }
-#battleArea .party {
-  width: 75px;
-  height: 75px;
-  background-color: blue;
-  color: white;
-  font-size: 20px;
-  margin: 20px;
-  padding: 5px;
-  position: relative;
-}
-#battleArea .party::after {
+#battleArea .enemy::after {
   content: "17";
   position: absolute;
   top: 10px;
@@ -65,9 +56,19 @@
   font-size: 25px;
   -webkit-text-stroke: 1px black;
 }
-#battleArea .party.showDamage::after {
+#battleArea .enemy.showDamage::after {
   filter: opacity(1);
   top: -20px;
+}
+#battleArea .party {
+  width: 75px;
+  height: 75px;
+  background-color: blue;
+  color: white;
+  font-size: 20px;
+  margin: 20px;
+  padding: 5px;
+  position: relative;
 }
 #statusArea {
   background-color: #eeeeee;

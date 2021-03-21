@@ -13,11 +13,35 @@ let attackFlow = new AttackFlow;
 
 let attackTarget = "";
 
+
+// I don't really understand this, should probably understand how async functions work at some point!
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
+const showDamage = async (person,damage) => {
+    document.getElementsByTagName('style')[0].innerHTML = "#battleArea #enemy" + person.id + "::after {content: '" + damage + "';}";
+    document.getElementById('enemy' + person.id).classList.add("showDamage");
+    await delay(500);
+    document.querySelector(".showDamage").classList.remove("showDamage");
+  };
+
+
+// function showDamage(person,damage) {
+//     document.getElementsByTagName('style')[0].innerHTML = "#battleArea #enemy" + person.id + "::after {content: '" + damage + "';}";
+//     document.getElementById('enemy' + person.id).classList.add("showDamage");
+// }
+
+
+
+
+
+
+
 function attack(attacker, target, attackType) {
     console.log(attacker.name + " attacked " + target.name + " with " + attackType);
     attackFlow.ready = false;
     console.log(target);
     target.takeDmg(50);
+    showDamage(target,50);
     clearAttackMenu();
 }
 
@@ -41,7 +65,8 @@ function clearAttackMenu() { // This removes attack menus and continues to the n
 }
 
 document.addEventListener('click', function(event) {
-    if (event.target.className == "enemy" && waitingForTarget) {
+    console.log(event);
+    if (event.target.className.substring(0,5) == "enemy" && waitingForTarget) {
         console.log(event.target.id.substring(5)); // This gets the id of the enemy
         attackFlow.target = enemies[event.target.id.substring(5)];
         attackFlow.ready = true;
